@@ -1,0 +1,12 @@
+{
+  "name": "youtube-online-tutorials",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "dev": "snowpack dev"
+  },
+  "devDependencies": {
+    "@snowpack/plugin-sass": "^1.4.0",
+    "snowpack": "^3.8.8"
+  }
+}
