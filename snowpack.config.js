@@ -1,9 +1,10 @@
 /** @type {import("snowpack").SnowpackUserConfig } */
 module.exports = {
-  plugins: [
-    '@snowpack/plugin-sass',
+  exclude: [
+    '**/node_modules/**/*',
+    '**/.git/**/*',
   ],
   devOptions: {
-    port: 3636
+    port: 3000
   }
 }
