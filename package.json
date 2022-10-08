@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "dev": "snowpack dev"
+    "dev": "vite --port=3000 --host"
   },
   "devDependencies": {
-    "snowpack": "^3.8.8"
+    "vite": "^3.1.6"
   }
 }
