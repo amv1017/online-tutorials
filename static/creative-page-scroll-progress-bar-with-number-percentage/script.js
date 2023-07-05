@@ -5,9 +5,9 @@ let totalHeight = document.body.scrollHeight - window.innerHeight
 let progress = (window.pageYOffset / totalHeight) * 100
 
 const scrolling = () => {
-  progress = (window.pageYOffset / totalHeight) * 100 
-  progressbar.style.height = progress + "%"
-  percent.innerHTML = "Page Scrolled " + Math.round(progress) + "%"
+  progress = (window.pageYOffset / totalHeight) * 100
+  progressbar.style.height = progress + '%'
+  percent.innerHTML = 'Page Scrolled ' + Math.round(progress) + '%'
 }
 
 window.addEventListener('scroll', () => {

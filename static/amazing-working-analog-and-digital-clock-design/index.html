@@ -1,77 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="../_common_/favicon.png">
-  <link rel="stylesheet" href="./style.css">
-  <title>Circle Part Loading Effect</title>
-</head>
-<body>
-  <div class="container">
-    <div class="clock">
-      <div class="circle" id="sc" style="--clr:#04fc43;"><i></i></div>
-      <div class="circle circle2" id="mn" style="--clr:#fee800;"><i></i></div>
-      <div class="circle circle3" id="hr" style="--clr:#ff2972;"><i></i></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../_common_/favicon.png" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Clock</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="clock">
+        <div class="circle" id="sc" style="--clr: #04fc43"><i></i></div>
+        <div class="circle circle2" id="mn" style="--clr: #fee800"><i></i></div>
+        <div class="circle circle3" id="hr" style="--clr: #ff2972"><i></i></div>
 
-      <span style="--i:1;"><b>1</b></span>
-      <span style="--i:2;"><b>2</b></span>
-      <span style="--i:3;"><b>3</b></span>
-      <span style="--i:4;"><b>4</b></span>
-      <span style="--i:5;"><b>5</b></span>
-      <span style="--i:6;"><b>6</b></span>
-      <span style="--i:7;"><b>7</b></span>
-      <span style="--i:8;"><b>8</b></span>
-      <span style="--i:9;"><b>9</b></span>
-      <span style="--i:10;"><b>10</b></span>
-      <span style="--i:11;"><b>11</b></span>
-      <span style="--i:12;"><b>12</b></span>
+        <span style="--i: 1"><b>1</b></span>
+        <span style="--i: 2"><b>2</b></span>
+        <span style="--i: 3"><b>3</b></span>
+        <span style="--i: 4"><b>4</b></span>
+        <span style="--i: 5"><b>5</b></span>
+        <span style="--i: 6"><b>6</b></span>
+        <span style="--i: 7"><b>7</b></span>
+        <span style="--i: 8"><b>8</b></span>
+        <span style="--i: 9"><b>9</b></span>
+        <span style="--i: 10"><b>10</b></span>
+        <span style="--i: 11"><b>11</b></span>
+        <span style="--i: 12"><b>12</b></span>
+      </div>
+
+      <div id="time">
+        <div id="hours" style="--clr: #ff2972">00</div>
+        <div id="minutes" style="--clr: #fee800">00</div>
+        <div id="seconds" style="--clr: #04fc43">00</div>
+        <div id="ampm">AM</div>
+      </div>
     </div>
+    <script>
+      const leadZero = (x) => {
+        return (x < 10 ? '0' : '') + x
+      }
 
-    <div id="time">
-      <div id="hours" style="--clr:#ff2972;">00</div>
-      <div id="minutes" style="--clr:#fee800;">00</div>
-      <div id="seconds" style="--clr:#04fc43;">00</div>
-      <div id="ampm">AM</div>
-    </div>
-  </div>
-  <script>
-    const leadZero = (x) => {
-      return (x < 10 ? '0' : '') + x
-    }
+      let sc = document.getElementById('sc')
+      let mn = document.getElementById('mn')
+      let hr = document.getElementById('hr')
 
-    let sc = document.getElementById('sc')
-    let mn = document.getElementById('mn')
-    let hr = document.getElementById('hr')
+      let hours = document.getElementById('hours')
+      let minutes = document.getElementById('minutes')
+      let seconds = document.getElementById('seconds')
+      let ampm = document.getElementById('ampm')
 
-    let hours = document.getElementById('hours')
-    let minutes = document.getElementById('minutes')
-    let seconds = document.getElementById('seconds')
-    let ampm = document.getElementById('ampm')
+      let day, hh, mm, ss, h, m, s
 
-    let day, hh, mm, ss, h, m, s
+      setInterval(() => {
+        day = new Date()
 
-    setInterval(() => {  
-      day = new Date()
-      
-      h = day.getHours()
-      m = day.getMinutes()
-      s = day.getSeconds()
+        h = day.getHours()
+        m = day.getMinutes()
+        s = day.getSeconds()
 
-      hh = h * 30
-      mm = m * 6
-      ss = s * 6
+        hh = h * 30
+        mm = m * 6
+        ss = s * 6
 
-      hr.style.transform = `rotateZ(${hh+(mm/12)}deg)`
-      mn.style.transform = `rotateZ(${mm}deg)`
-      sc.style.transform = `rotateZ(${ss}deg)`
+        hr.style.transform = `rotateZ(${hh + mm / 12}deg)`
+        mn.style.transform = `rotateZ(${mm}deg)`
+        sc.style.transform = `rotateZ(${ss}deg)`
 
-      hours.innerHTML = leadZero(h === 12 ? h : h % 12)
-      minutes.innerHTML = leadZero(m)
-      seconds.innerHTML = leadZero(s)
-      ampm.innerHTML = h >= 12 ? "PM" : "AM"
-    })
-  </script>
-</body>
+        hours.innerHTML = leadZero(h === 12 ? h : h % 12)
+        minutes.innerHTML = leadZero(m)
+        seconds.innerHTML = leadZero(s)
+        ampm.innerHTML = h >= 12 ? 'PM' : 'AM'
+      })
+    </script>
+  </body>
 </html>

@@ -1,51 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="./static/_common_/favicon.png">
-  <link rel="stylesheet" href="./style.css">
-  <title>Pages</title>
-</head>
-<body>
-  <ul>
-    <li>
-      <a href="static/glassmorphism-animation-effect/">Glassmorphism Animation Effect</a>
-    </li>
-    <li>
-      <a href="static/bouncing-dvd-logo-animation/">Bouncing DVD Logo Animation</a>
-    </li>
-    <li>
-      <a href="static/circle-part-loading-effect/">Circle Part Loading Effect</a>
-    </li>
-    <li>
-      <a href="static/creative-page-scroll-progress-bar-with-number-percentage/">Creative Page Scroll Progress Bar With Number Percentage</a>
-    </li>
-    <li>
-      <a href="static/creative-css-loading-animations-effects-02/">Creative CSS Loading Animations Effects 02</a>
-    </li>
-    <li>
-      <a href="static/glowing-loader-ring-animation-3/">Glowing Loader Ring Animation 3</a>
-    </li>
-    <li>
-      <a href="static/css-creative-menu-item-hover-effects/">CSS Creative Menu Item Hover Effects</a>
-    </li>
-    <li>
-      <a href="static/css-glowing-neumorphism-icon-hover-effects/">CSS Glowing Neumorphism Icon Hover Effects</a>
-    </li>
-    <li>
-      <a href="static/css-3d-glowing-cube-animation-effects/">CSS 3D Glowing Cube Animation Effects</a>
-    </li>
-    <li>
-      <a href="static/customizable-typewriter-animation-with-css/">Customizable Typewriter Animation With CSS</a>
-    </li>
-    <li>
-      <a href="static/amazing-working-analog-and-digital-clock-design/">Amazing Working Analog And Digital Clock Design</a>
-    </li>
-    <li>
-      <a href="static/css-qr-code-scanner-animation-effects/">CSS QR Code Scanner Animation Effects</a>
-    </li>
-  </ul>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./static/_common_/favicon.png" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Pages</title>
+  </head>
+  <body>
+    <ul></ul>
+    <script>
+      window.addEventListener('DOMContentLoaded', async () => {
+        const data = (await import('./data.json', { assert: { type: 'json' } }))
+          .default
+        document.querySelector('ul').innerHTML = `
+          ${data.pages
+            .map(
+              ([title, href]) =>
+                `<li><a href="${href}/index.html">${title}</a></li>`
+            )
+            .join('')}
+        `
+      })
+    </script>
+  </body>
 </html>

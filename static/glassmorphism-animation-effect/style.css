@@ -34,7 +34,6 @@ body {
 }
 
 .loader span:nth-child(2) {
-  
   background: #04fe4d;
   animation: animate 4s ease-in-out infinite;
 }

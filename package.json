@@ -6,6 +6,6 @@
     "dev": "vite --port=3000 --host"
   },
   "devDependencies": {
-    "vite": "^3.1.6"
+    "vite": "^4.3.9"
   }
 }
