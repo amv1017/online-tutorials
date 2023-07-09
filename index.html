@@ -12,7 +12,7 @@
     <ul></ul>
     <script>
       window.addEventListener('DOMContentLoaded', async () => {
-        const prefix = '/pages'
+        const prefix = 'pages'
         document.querySelector('ul').innerHTML = (
           await import('./pages.json', { assert: { type: 'json' } })
         ).default.pages
