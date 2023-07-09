@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="./static/_common_/favicon.png" />
+    <link rel="icon" href="common/favicon.png" />
     <link rel="stylesheet" href="./style.css" />
     <title>Pages</title>
   </head>
@@ -12,16 +12,15 @@
     <ul></ul>
     <script>
       window.addEventListener('DOMContentLoaded', async () => {
-        const data = (await import('./data.json', { assert: { type: 'json' } }))
-          .default
-        document.querySelector('ul').innerHTML = `
-          ${data.pages
-            .map(
-              ([title, href]) =>
-                `<li><a href="${href}/index.html">${title}</a></li>`
-            )
-            .join('')}
-        `
+        const prefix = '/pages'
+        document.querySelector('ul').innerHTML = (
+          await import('./pages.json', { assert: { type: 'json' } })
+        ).default.pages
+          .map(
+            ([title, href]) =>
+              `<li><a href="${prefix}${href}/">${title}</a></li>`
+          )
+          .join('')
       })
     </script>
   </body>
